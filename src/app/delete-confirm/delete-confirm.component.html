@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content>
+  <p>Do u want to delete this Record?</p>
+</div>
+<div mat-dialog-actions>  
+  <button mat-button (click)="onDeleteClick()" [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+  <button mat-button (click)="onCancelClick()">CANCEL</button>
+</div>

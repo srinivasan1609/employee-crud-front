@@ -1,0 +1,42 @@
+<div class = "mat-elevation-z8 table-div">
+  <div class="example-button-container">
+    <button class="new-button" mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="openAddDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="empId" class = "table-column">
+      <th mat-header-cell *matHeaderCellDef> <b>Emp Id</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fName" class = "table-column">
+      <th mat-header-cell *matHeaderCellDef> <b> First Name </b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lName" class = "table-column">
+      <th mat-header-cell *matHeaderCellDef> <b> Last Name </b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="deptName" class = "table-column">
+      <th mat-header-cell *matHeaderCellDef> <b>Dept. Name </b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.deptName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions" class = "table-column">
+      <th mat-header-cell *matHeaderCellDef><b>Actions </b></th>
+      <td mat-cell *matCellDef="let element"> 
+      <button mat-icon-button (click)="openEditDialog(element.id)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="openDeleteDialog(element.id)"><mat-icon>delete</mat-icon></button>
+    </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
